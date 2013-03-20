@@ -50,7 +50,7 @@ module Limelight
           log_entries << log_entry[:end_time].to_s
           log_entries << log_entry[:run_time].to_s
         end
-        puts h.list(log_entries, :columns_across, 6)
+        puts h.list(log_entries, :columns_across, 5)
         puts
       else
 	puts "No status for this node was found"
