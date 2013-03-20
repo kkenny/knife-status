@@ -40,13 +40,14 @@ module Limelight
                         h.color('End Time', :bold, :underline),
                         h.color('Run Time', :bold, :underline) ]
         node[:status].each do |log_entry|
+	  log_entries << node[:name].to_s
           log_entries << log_entry[:time].to_s
 	  log_entries << log_entry[:status].to_s
           log_entries << log_entry[:start_time].to_s
           log_entries << log_entry[:end_time].to_s
           log_entries << log_entry[:run_time].to_s
         end
-        puts h.list(log_entries, :columns_across, 5)
+        puts h.list(log_entries, :columns_across, 6)
         puts
       end
     end
