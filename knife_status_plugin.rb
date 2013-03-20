@@ -31,6 +31,10 @@ module Limelight
         exit 1
       end
 
+      puts node.name
+      1.upto(node.name.length) { print "-" }
+      puts
+
       $stdout.sync = true
 
       if node[:status]
@@ -40,7 +44,6 @@ module Limelight
                         h.color('End Time', :bold, :underline),
                         h.color('Run Time', :bold, :underline) ]
         node[:status].each do |log_entry|
-	  log_entries << node[:name].to_s
           log_entries << log_entry[:time].to_s
 	  log_entries << log_entry[:status].to_s
           log_entries << log_entry[:start_time].to_s
@@ -49,6 +52,9 @@ module Limelight
         end
         puts h.list(log_entries, :columns_across, 6)
         puts
+      else
+	puts "No status for this node was found"
+	puts
       end
     end
   end
